@@ -25,18 +25,24 @@
     </div>
 
 </body>
-
-<button onclick="funcaoCelsius()">Calcular C</button>
-<button onclick="funcaoFahrenheit()">Calcular F</button>
-<button onclick="funcaoKelvin()">Calcular K</button>
-
+<div id="botoes">
+    <button onclick="funcaoCelsius()" class="botao">Calcular C</button>
+    <button onclick="funcaoFahrenheit()" class="botao">Calcular F</button>
+    <button onclick="funcaoKelvin()" class="botao">Calcular K</button>
+</div>
 <div id="resultado">
-    <h4>Celsius:</h4>
-    <section id="r_celsius"></section>
-    <h4>Fahrenheit:</h4>
-    <section id="r_fahrenheit"></section>
-    <h4>Kelvin:</h4>
-    <section id="r_kelvin"></section>
+    <div class="separacao">
+        <h4>Celsius:</h4>
+        <section id="r_celsius" class="saida"></section>
+    </div>
+    <div class="separacao">
+        <h4>Fahrenheit:</h4>
+        <section id="r_fahrenheit" class="saida"></section>
+    </div>
+    <div class="separacao">
+        <h4>Kelvin:</h4>
+        <section id="r_kelvin" class="saida"></section>
+    </div>
 </div>
 
 </html>
