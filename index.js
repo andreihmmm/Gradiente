@@ -29,10 +29,18 @@ function funcaoKelvin() {
         red = 255;
         green = 255 - (255 * Celsius / 100);
         blue = 0;
-    } else {
+    } else if (Celsius <= 1000) {
         red = 255;
         green = 0;
         blue = 0;
+    } else if (Celsius <= 3400) {
+        red = 255;
+        green = (255 * Celsius) / 3400;
+        blue = 0;
+    } else if (Celsius <= 10000) {
+        red = 255;
+        green = 255;
+        blue = (255 * Celsius) / 10000;
     }
     redHex = parseInt(red)
     var r = redHex.toString(16)
@@ -54,9 +62,11 @@ function funcaoKelvin() {
     var rgb = "#" + r + g + b
     var body = document.querySelector("body")
     var corFundo = body.style.backgroundColor = rgb
+    inputKelvin.value = '';
 }
 
 function funcaoCelsius() {
+    // Cálculos de conversão
     var inputCelsius = document.querySelector("#Celsius")
     var Celsius = parseFloat(inputCelsius.value)
     var Kelvin = Celsius + 273
@@ -68,10 +78,14 @@ function funcaoCelsius() {
     outputKelvin.textContent = parseInt(Kelvin) + " K"
     var outputFahrenheit = document.querySelector("#r_fahrenheit")
     outputFahrenheit.textContent = parseInt(Fahrenheit) + " ºF"
-
+    // Cria variáveis red, green e blue pra formar o rgb
     var red = ''
     var green = ''
     var blue = ''
+
+    // Funções que fazem com que em 0ºC o fundo fique azul (0,0,255), em 50ºC amarelo 
+    // (255,255,00) e 100ºC em vermelho (255,0,0)
+
     if (Celsius <= 0) {
         red = 0;
         green = 0;
@@ -89,6 +103,8 @@ function funcaoCelsius() {
         green = 0;
         blue = 0;
     }
+    // Transforma os valores decimais em hexadecimais e acrescentando um 0 a esquerda caso
+    // o valor em hexa tenha ficado com apenas um dígito
     redHex = parseInt(red)
     var r = redHex.toString(16)
     if (r.length < 2) {
@@ -104,8 +120,8 @@ function funcaoCelsius() {
     if (b.length < 2) {
         b = "0" + b
     }
-
-
+    // Cria uma variável rgb cujo valor, em formato #RRGGBB será usado para definir a cor do
+    // background da página
     var rgb = "#" + r + g + b
     var body = document.querySelector("body")
     var corFundo = body.style.backgroundColor = rgb
