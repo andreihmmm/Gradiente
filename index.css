@@ -41,7 +41,7 @@ h4 {
 #resultado {
     background-color: azure;
     border-radius: 2px;
-    width: 20vw;
+    min-width: 20vw;
 }
 
 .saida {
@@ -50,8 +50,7 @@ h4 {
 }
 
 .botao:hover {
-    background-color: blue;
-    color: white;
+    background-color: rgb(255, 193, 234);
     cursor: pointer;
 }
 

@@ -1,10 +1,19 @@
 function apertarBotao() {
     var inputKelvin = document.querySelector('#Kelvin')
     var Kelvin = inputKelvin.value
+    if (Kelvin < 0) {
+        alert('VALOR NÃO EXISTE'); return;
+    }
     var inputCelsius = document.querySelector("#Celsius")
     var Celsius = inputCelsius.value
+    if (Celsius < -273) {
+        alert('VALOR NÃO EXISTE'); return;
+    }
     var inputFahrenheit = document.querySelector('#Fahrenheit')
     var Fahrenheit = inputFahrenheit.value
+    if (Fahrenheit < -460) {
+        alert('VALOR NÃO EXISTE'); return;
+    }
     if (Kelvin.length !== 0 && Celsius.length === 0 && Fahrenheit.length === 0) {
         var body = document.querySelector("body")
         var cor = document.q
@@ -49,7 +58,11 @@ function apertarBotao() {
         inputFahrenheit.value = ''
     }
     else {
-        alert("Nenhum campo preenchido ou mais de um campo preenchido"); return;
+        alert("Nenhum campo ou mais de um campo preenchidos... se liga pô");
+        inputFahrenheit.value = ''
+        inputKelvin.value = '';
+        inputCelsius.value = ''
+        return;
     }
     var red = ''
     var green = ''
@@ -101,5 +114,4 @@ function apertarBotao() {
     var rgb = "#" + r + g + b
     var body = document.querySelector("body")
     var corFundo = body.style.backgroundColor = rgb
-    inputKelvin.value = '';
 }
